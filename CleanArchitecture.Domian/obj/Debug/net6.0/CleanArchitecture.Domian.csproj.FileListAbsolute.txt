@@ -1,0 +1,12 @@
+C:\Prueba\CleanArchitecture\CleanArchitecture.Domian\bin\Debug\net6.0\CleanArchitecture.Domian.deps.json
+C:\Prueba\CleanArchitecture\CleanArchitecture.Domian\bin\Debug\net6.0\CleanArchitecture.Domian.dll
+C:\Prueba\CleanArchitecture\CleanArchitecture.Domian\bin\Debug\net6.0\CleanArchitecture.Domian.pdb
+C:\Prueba\CleanArchitecture\CleanArchitecture.Domian\obj\Debug\net6.0\CleanArchitecture.Domian.csproj.AssemblyReference.cache
+C:\Prueba\CleanArchitecture\CleanArchitecture.Domian\obj\Debug\net6.0\CleanArchitecture.Domian.GeneratedMSBuildEditorConfig.editorconfig
+C:\Prueba\CleanArchitecture\CleanArchitecture.Domian\obj\Debug\net6.0\CleanArchitecture.Domian.AssemblyInfoInputs.cache
+C:\Prueba\CleanArchitecture\CleanArchitecture.Domian\obj\Debug\net6.0\CleanArchitecture.Domian.AssemblyInfo.cs
+C:\Prueba\CleanArchitecture\CleanArchitecture.Domian\obj\Debug\net6.0\CleanArchitecture.Domian.csproj.CoreCompileInputs.cache
+C:\Prueba\CleanArchitecture\CleanArchitecture.Domian\obj\Debug\net6.0\CleanArchitecture.Domian.dll
+C:\Prueba\CleanArchitecture\CleanArchitecture.Domian\obj\Debug\net6.0\refint\CleanArchitecture.Domian.dll
+C:\Prueba\CleanArchitecture\CleanArchitecture.Domian\obj\Debug\net6.0\CleanArchitecture.Domian.pdb
+C:\Prueba\CleanArchitecture\CleanArchitecture.Domian\obj\Debug\net6.0\ref\CleanArchitecture.Domian.dll
