@@ -9,7 +9,13 @@ StreamerDbContext dbContext = new();
 //QueryStreaming();
 //await QueryFilter();
 //await QueryMethods();
-await QueryLinq();
+//await QueryLinq();
+//await AddNewStreamerWithVideo();
+//await AddNewStreamerWithVideoId();
+//await AddNewActorWithVideo();
+//await AddNewDirectorWithVideo();
+
+await MultipleEntitiesQuery();
 Console.WriteLine("Presione cualquier tecla para terminar el programa");
 Console.ReadKey();
 
@@ -33,7 +39,6 @@ async Task QueryMethods()
     var resultado = await streamer.FindAsync(3);
     Console.WriteLine(resultado.Id);
 }
-
 async Task QueryLinq() 
 {
     Console.WriteLine($"Ingrese el servicio de streaming");
@@ -48,8 +53,6 @@ async Task QueryLinq()
     }
 
 }
-
-
 async Task QueryFilter()
 {
     Console.WriteLine($"Ingrese cualquier compania de streaming");
@@ -74,7 +77,6 @@ async Task QueryFilter()
 
 
 }
-
 void QueryStreaming()
 {
     var streamers = dbContext!.Streamers!.ToList();
@@ -83,8 +85,6 @@ void QueryStreaming()
         Console.WriteLine($"{streame.Id} - {streame.Nombre}");
     }
 }
-
-
 async Task AddNewRecords()
 {
 
@@ -127,7 +127,91 @@ async Task AddNewRecords()
     await dbContext.SaveChangesAsync();
 
 }
+async Task AddNewStreamerWithVideo() 
+{
+    var pantaya = new Streamer
+    {
+        Nombre = "Panataya",
+        Url = "www.Pantaya.com.co"
+    };
 
+    var hungerGame = new Video
+    {
+        Nombre = "Hunger Games",
+        Streamer = pantaya
+
+    };
+
+    await dbContext.AddAsync(hungerGame);
+    await dbContext.SaveChangesAsync();
+
+
+}
+async Task AddNewStreamerWithVideoId()
+{
+    
+    var hungerGame = new Video
+    {
+        Nombre = "Batman Forever",
+        StreamerId = 4
+
+    };
+
+    await dbContext.AddAsync(hungerGame);
+    await dbContext.SaveChangesAsync();
+
+
+}
+
+async Task AddNewActorWithVideo() 
+{
+    var actor = new Actor
+    {
+        Nombre = "Diego",
+        Apellido = "Mateus"
+    };
+    await dbContext.AddAsync(actor);
+    await dbContext.SaveChangesAsync();
+
+    var videoActor = new VideoActor
+    {
+        ActorId = actor.Id,
+        VideoId = 10
+
+    };
+
+    await dbContext.AddAsync(videoActor);
+    await dbContext.SaveChangesAsync();
+
+
+}
+
+async Task AddNewDirectorWithVideo() 
+{
+    var director = new Director()
+    {
+        Nombre = "Diego Director",
+        Apellido = "Mateus Director",
+        VideoId = 10
+
+    };
+
+    await dbContext.AddAsync(director);
+    await dbContext.SaveChangesAsync();
+
+
+}
+
+async Task MultipleEntitiesQuery()
+{
+    // var videoWithActores = await dbContext.Videos.Include(x => x.Actores).Include(x => x.Director).FirstOrDefaultAsync( q => q.Id == 10 );
+
+    var actor = await dbContext!.Actores!.Select(q => q.Nombre).ToListAsync();
+
+    var video = await dbContext.Videos.Include(x => x.Actores).Select( u => new { Nombrepelicula = u.Nombre , ActoresNombre = u.Actores.Select(p => p.Nombre).ToList() }).ToListAsync();
+
+
+}
 
 
 

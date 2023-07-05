@@ -3,6 +3,7 @@ using CleanArchitecture.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CleanArchitecture.Data.Migrations
 {
     [DbContext(typeof(StreamerDbContext))]
-    partial class StreamerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230705023344_agregar-tablas-relaciones")]
+    partial class agregartablasrelaciones
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,7 +39,7 @@ namespace CleanArchitecture.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Actores");
+                    b.ToTable("Actor");
                 });
 
             modelBuilder.Entity("CleanArchitecture.Domian.Director", b =>
@@ -62,7 +64,7 @@ namespace CleanArchitecture.Data.Migrations
                     b.HasIndex("VideoId")
                         .IsUnique();
 
-                    b.ToTable("Directores");
+                    b.ToTable("Director");
                 });
 
             modelBuilder.Entity("CleanArchitecture.Domian.Streamer", b =>
